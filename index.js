@@ -10,6 +10,7 @@ var requests = require('requests');
 const hbs = require('hbs');
 app.set("view engine","hbs");
 hbs.registerPartials("./views");
+const port = process.env.PORT ||3000
 
 
 
@@ -331,6 +332,6 @@ const del= async () =>{
 //del()
 
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log("your connection is successfull");
 })
