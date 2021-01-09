@@ -1,0 +1,18 @@
+{{>head}}
+
+    <div style="height: 93vh;width:100%;display:flex;justify-content:center;place-items:center">
+    <h1 style="font-size: 60px;color:#DF6589FF">404 ERROR PAGE</h1><br>
+    <input type="submit" style="border:1px solid #DF6589FF;color:#DF6589FF;border-radius:10px;position:relative;top:60px;right:250px" value="GoBack" class="subb" />
+    </div>
+
+
+    <script>
+        $(document).ready(()=>{
+            $('.subb').click(()=>{
+               history.back();
+            });
+        });
+    </script>
+
+{{>footer}}
+{{>down}}

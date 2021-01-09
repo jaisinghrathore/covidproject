@@ -1,0 +1,31 @@
+<div style="width: 90vw;height: 90vh;background-color: grey;position: absolute;left: 50%;transform: translate(-50%);top: 34px;z-index: 3;display:none" class="hideMaps">
+  <img src="https://d3i6fh83elv35t.cloudfront.net/static/2020/03/Screen-Shot-2020-03-05-at-6.29.29-PM-1200x673.png" height="100%" width="100%" alt="" >
+</div>
+
+
+<script>
+  $(document).ready(()=>{
+    $('.maps').click(()=>{
+     $(".hideMaps").slideToggle();
+    })
+    
+      $('.top').click(()=>{
+  $(window).scrollTop(0);
+    })
+     $(window).scroll(()=>{
+    const top=$(window).scrollTop();
+        if(top>200){
+      $('.top').slideDown();
+        }else{
+      $('.top').slideUp();
+        }
+  });
+
+
+
+  });
+</script>
+
+{{!-- jfdsjfodsjfkosdjfoisdjfiodsjfiosdjfojvhoid
+dfdsfdsfdsfdsf --}}
+   

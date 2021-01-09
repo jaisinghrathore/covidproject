@@ -1,0 +1,68 @@
+
+
+
+ 		<!-- chatbot starting -->
+
+ 		<div class="chat_icon">
+ 			<i class="fa fa-comments" aria-hidden="true" style="color:#3C1053FF;font-size: 80px;position: fixed;bottom: 20px;left: 30px;text-shadow:6px 6px 6px grey"></i>
+		</div>
+
+
+		<div class="chat_box">
+
+			 <div class="conv-form-wrapper">
+
+			<form action="" class="hidden" method="GET">
+			 <select data-conv-question="Hello! I'm a bot created by our Team" name="first-question">
+	                                    <option value="yes">Yes</option>
+	                                    <option value="sure">Sure!</option>
+	                                </select>
+	                                <input type="text" name="name" data-conv-question="Alright! First, tell me your full name, please.Okay! Please, tell me your name first.">
+	                                <input type="text" data-conv-question="Howdy, {name} It's a pleasure to meet you. " data-no-answer="true">
+	                                <select name="multi[]" data-conv-question="What kind of information do you want?" multiple>
+	                                    <option value="Rock">Covid</option>
+	                                </select>
+	                                <input type="text" name="state" data-conv-question="Alright! First, tell me your country name.">
+	                                <input type="text" data-conv-question="Howdy, patients in {state} are {{confirmed}} " data-no-answer="true">
+	                                <select data-conv-question="no need to be tensed">
+	                                    <option value="">Awesome!</option>
+	                                </select>
+			</form>
+		</div>
+
+		</div>
+ 		<!-- chatbot ending -->
+
+
+
+ 	
+
+
+ 	<script>
+ 		
+ 		$(document).ready(()=>{
+ 			$(".chat_icon").click(()=>{
+ 				$(".chat_box").toggleClass('active');
+ 			});
+ 			$('.conv-form-wrapper').convform({selectInputStyle: 'disable'});
+ 		});
+
+ 	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 	

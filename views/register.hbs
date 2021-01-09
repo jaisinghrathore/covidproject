@@ -1,0 +1,40 @@
+{{>head}}
+{{>nav}}
+
+
+  <div class="main">
+        <div class="container">
+            <div class="row">
+
+                <div class="offset-2 col-8 form" style="display:flex;justify-content:center;">
+            <div style="width:600px;background-color:#DF6589FF;margin:40px 0;border-radius:10px;padding:20px 40px">
+                    <h4 style="color:#fff;margin:10px 0 20px 0;text-align:center">Sign Up</h4>
+
+                    <form action="/register" method="POST">
+
+                        <label style="color:white">firstname</label>
+                       <input type="text" class="form-control" id="fname" placeholder="Enter firstname" name="firstname" value="">
+                        <label style="color:white">lastname</label>
+                        <input type="text" class="form-control" id="lname" placeholder="Enter lastname" name="lastname" value="">
+                        <label style="color:white">email</label>
+                         <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" value="" style="margin-bottom:18px">
+                        <input type="radio" value="male" name="gender" style="margin-right:10px;"><label style="color:white ;margin-right:10px;">male</label>
+                         <input type="radio" name='gender' value="female" style="margin-right:10px;"><label style="color:white">female</label><br>
+                        <label style="color:white">number</label>
+                            <input type="number" class="form-control" id="number" placeholder="Enter number" name="phone" value="">
+                        <label style="color:white">password</label>
+                             <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" value="">
+                        <label style="color:white">Confirm password</label>
+                             <input type="password" class="form-control" id="cpassword" placeholder="confirm password" name="confirmpassword" value="" style="margin-bottom: 30px;">
+                              <input type="submit" class="btnRegister" style="width:40%;height:40px;border:1px solid #DF6589FF;color:#DF6589FF;position:relative;left:50%;transform:translate(-50%)">
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{>footer}}
+{{>top}}
+{{>jquery}}
+{{>down}}

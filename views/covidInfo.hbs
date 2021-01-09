@@ -1,0 +1,145 @@
+{{>head}}
+{{>nav}}
+
+
+        <h2 style="text-align: center;color:#DF6589FF;margin: 30px 0;">Search about Covid patient in our country</h2>
+
+
+    <div class="container" style="margin-bottom:30px">
+
+        <div class="main-content" style="margin-left: 42px;height:100px">
+
+                <input type="text" id="cityName" value="" placeholder="Enter your state name" autocomplete="off" style="background-color: #4b1761;color:white;">
+                <input type="submit" value="search" id="subBtn" style="background-color:#3C1053;box-shadow:2px 2px 2px 1px black;margin-left:160px;position:relative;bottom:54px;left:70px">
+    </div>
+
+
+
+    <div class="second-main">
+
+        <div class="box" style="background-color:#cb4b4c;margin-left:90px;height:300px">
+            <div class="inner-box" style="background-color: #3C1053;">
+                <h5 style="color: white;float:left" class="day">Tuesday</h5>
+                <h5 style="color: white;margin-left:145px" class="dinn">15 oct</h5>
+            </div>
+            <br><br><br><br>
+        <p style="color: white;text-align:center;margin-top:3px" class="cityname">Get state name</p>
+
+        <p style="color: white;text-align:center;margin-top:3px" class="confirmedCasesIndian">confirmedCasesIndian</p>
+        <p style="color: white;text-align:center;margin-top:3px" class="discharged">discharged</p>
+        <p style="color: white;text-align:center;margin-top:3px" class="deaths">deaths</p>
+        <p style="color: white;text-align:center;margin-top:3px" class="confirmed">confirmed</p>
+
+       </div>
+
+    </div>
+
+    {{>chat}}
+
+
+</div>
+
+     {{>top}}
+
+{{>footer}}
+<script>
+    var value=new Date();
+    var dat=value.toLocaleDateString();
+
+        var day=value.getDay();
+
+        switch(day){
+            case 1:day="mon";
+            break;
+            case 2:day="tue";
+            break;
+            case 3:day="web";
+            break;
+            case 4:day="thu";
+            break;
+            case 5:day="fri";
+            break;
+            case 6:day="sat";
+            break;
+            case 7:day="sun";
+            break;
+        }
+
+            document.querySelector(".day").innerText=day.toUpperCase();
+            document.querySelector(".dinn").innerText=dat;
+
+
+    //NEW LINE
+ const subm=document.querySelector("#subBtn");
+
+
+
+
+        const getinfo = async() => {
+            
+            var inp=document.querySelector("#cityName").value;
+            var firstInp=inp.slice(0,1);
+		    var lastInp=inp.slice(1);
+            var final=firstInp.toUpperCase()+lastInp;
+
+        if(final == ""){
+            alert("write state name");
+        }else{
+
+            try{
+        const data=await fetch('https://api.rootnet.in/covid19-in/stats');
+        const jsdata=await data.json();
+        const ultraFinal = [jsdata];
+
+
+        //value
+
+        for(i=0;i<36;i++){
+            var search=ultraFinal[0].data.regional[i].loc;
+             var confirmedCasesIndian=ultraFinal[0].data.regional[i].confirmedCasesIndian;
+            var discharged=ultraFinal[0].data.regional[i].discharged;
+            var deaths=ultraFinal[0].data.regional[i].deaths;
+            var totalConfirmed=ultraFinal[0].data.regional[i].totalConfirmed;                                                                   //API
+            if(final ==search){
+                document.querySelector(".cityname").innerHTML="state is "+ search;
+                document.querySelector(".confirmedCasesIndian").innerHTML="Total confirmed "+confirmedCasesIndian;
+                document.querySelector(".discharged").innerHTML="Discharged "+discharged;
+                document.querySelector(".deaths").innerHTML="Deaths "+deaths;
+                document.querySelector(".confirmed").innerHTML="New confirmed "+totalConfirmed;
+            }
+        }
+
+            }catch(err){
+                 document.querySelector(".cityname").innerHTML="write a valid city name";
+            }
+
+
+        }
+
+
+        };
+
+
+    subm.addEventListener("click",getinfo);
+
+
+
+
+</script>
+
+
+
+{{>jquery}}
+{{>down}}
+{{!-- ultraFinal[0].data.regional.length
+for(i=0;i<ultraFinal[0].data.regional.length;i++){
+      var datas=ultraFinal[0].data.regional[i].loc;
+      if(datas == "Rajasthan"){  
+          console.log(datas);
+          break;
+      }
+
+     
+
+      
+         } --}}

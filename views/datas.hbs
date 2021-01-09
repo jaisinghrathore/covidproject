@@ -1,0 +1,95 @@
+{{>head}}
+{{>nav}}
+
+
+        <h2 style="text-align: center;color:#DF6589FF;margin-top: 40px;margin-bottom:30px">COVID-19 LIVE UPDATES OF THE WORLD</h2>
+
+<div class="container" style="display: flex;justify-content:center">
+<table class="tabl">
+    <tr>
+        <th>Country</th>
+        <th>TotalConfirmed</th>
+        <th>TotalRecovered</th>
+        <th>TotalDeath</th>
+        <th>NewConfirmed</th>
+        <th>NewRecovered</th>
+        <th>NewDeath</th>
+    </tr>
+      
+</table>
+</div>
+    {{>chat}}
+
+
+{{>footer}}
+{{>top}}
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    const covid = async ()=>{
+    const Data=await fetch("https://api.covid19api.com/summary");
+    const finalData=await Data.json();
+        const finalData1=[finalData]
+        
+            
+        console.log();
+
+         for(i=0;i<finalData1[0].Countries.length;i++)
+                {
+
+            MainElement=document.createElement('tr');
+
+            const element1=document.createElement("td");
+            const element2=document.createElement("td");
+            const element3=document.createElement("td");
+            const element4=document.createElement("td");
+            const element5=document.createElement("td");
+            const element6=document.createElement("td");
+            const element7=document.createElement("td");
+            const text1=document.createTextNode(finalData1[0].Countries[i].Country);
+            const text2=document.createTextNode(finalData1[0].Countries[i].TotalConfirmed);
+            const text3=document.createTextNode(finalData1[0].Countries[i].TotalRecovered);
+            const text4=document.createTextNode(finalData1[0].Countries[i].TotalDeaths);
+            const text5=document.createTextNode(finalData1[0].Countries[i].NewConfirmed);
+            const text6=document.createTextNode(finalData1[0].Countries[i].NewRecovered);
+            const text7=document.createTextNode(finalData1[0].Countries[i].NewDeaths);
+
+
+            element1.appendChild(text1);
+            element2.appendChild(text2);
+            element3.appendChild(text3);
+            element4.appendChild(text4);
+            element5.appendChild(text5);
+            element6.appendChild(text6);
+            element7.appendChild(text7);
+
+
+            MainElement.appendChild(element1);
+            MainElement.appendChild(element2);
+            MainElement.appendChild(element3);
+            MainElement.appendChild(element4);
+            MainElement.appendChild(element5);
+            MainElement.appendChild(element6);
+            MainElement.appendChild(element7);
+
+
+        document.querySelector(".tabl").appendChild(MainElement);
+
+        } 
+    }
+
+    covid();
+
+</script>
+{{>jquery}}
+{{>down}}
